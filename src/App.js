@@ -16,7 +16,7 @@ class App extends Component {
         }))
       })
   }
-  
+
   //Remove contact - it sets state and React manages the UI update.
   //When delete button is pressed the contact object is passed in
   //The new set of contacts is passed to the setState function
@@ -27,6 +27,8 @@ class App extends Component {
         return c.id !== contact.id
       })
     }))
+
+    ContactsAPI.remove(contact);
   }
 
   render() {
