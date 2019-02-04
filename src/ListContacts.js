@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class ListContacts extends Component {
   
@@ -25,7 +26,7 @@ class ListContacts extends Component {
   render(){
     //Destructuring into variables
     const {query} = this.state
-    const {contacts, onDeleteContact, onNavigate} = this.props
+    const {contacts, onDeleteContact} = this.props
 
     //Create showingContacts, the filtered list of contacts to power the render
     //based on the state, which is based on input field.
@@ -45,13 +46,12 @@ class ListContacts extends Component {
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
-          <a 
+          <Link 
             className='add-contact'
-            onClick={() => {onNavigate()}}
-            href='#create'
+            to='/create'
           >
             Add contact
-          </a>
+          </Link>
         </div>
 
         {showingContacts.length !== contacts.length && (
