@@ -25,7 +25,7 @@ class ListContacts extends Component {
   render(){
     //Destructuring into variables
     const {query} = this.state
-    const {contacts, onDeleteContact} = this.props
+    const {contacts, onDeleteContact, onNavigate} = this.props
 
     //Create showingContacts, the filtered list of contacts to power the render
     //based on the state, which is based on input field.
@@ -44,7 +44,14 @@ class ListContacts extends Component {
             placeholder='Search contacts'
             value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
-          /> 
+          />
+          <a 
+            className='add-contact'
+            onClick={() => {onNavigate()}}
+            href='#create'
+          >
+            Add contact
+          </a>
         </div>
 
         {showingContacts.length !== contacts.length && (
